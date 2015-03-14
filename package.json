@@ -1,0 +1,19 @@
+{
+  "name": "fixit",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.0.0",
+    "cookie-parser": "~1.0.1",
+    "debug": "~0.7.4",
+    "ejs": "~0.8.5",
+    "express": "~4.2.0",
+    "lodash": "^3.5.0",
+    "morgan": "~1.0.0",
+    "request": "^2.53.0",
+    "serve-favicon": "^2.2.0"
+  }
+}
