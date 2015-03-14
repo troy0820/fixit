@@ -1,6 +1,7 @@
 #See, Click, Fix it
 
-##This project is to take the api and provide front end work with express.
+This project is to take the api and provide front end work with express.
+This project will also map the coordinates of issues at the location.
 
 ###Getting started
 ```
