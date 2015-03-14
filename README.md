@@ -7,6 +7,9 @@
 git clone git@github.com:troy0820/fixit.git
 cd fixit
 npm install
+npm install --save bower
+bower install bootstrap
+bower install font-awesome
 ```
 
 #API for this project is at this url.
