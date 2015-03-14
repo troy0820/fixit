@@ -3,9 +3,19 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+        <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.css">
   </head>
   <body>
+  <div class="container">
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+    <ul class="list-unstyled">
+    <% if(list){
+    	for(var i=0; i < list.length; i++) { %>
+		<li><%= list[i].summary %></li>
+    	<% }
+    } %></ul>
+    </div>
   </body>
 </html>
