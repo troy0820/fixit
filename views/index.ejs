@@ -9,13 +9,16 @@
   <body>
   <div class="container">
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <h2>City of Hampton Issues:</h2>
     <ul class="list-unstyled">
     <% if(list){
     	for(var i=0; i < list.length; i++) { %>
 		<li><%= list[i].lat %> <%= list[i].lng %></li>
+    <li><%= list[i].status %> <%= list[i].summary %></li>
+    
     	<% }
     } %></ul>
+    <div class="map">MAP GOES HERE</div>
     </div>
   </body>
 </html>
