@@ -2,8 +2,6 @@ var express = require('express');
 var router = express.Router();
 var request = require('request');
 
-
-
 router.get('/', function(req, res) {
  var url = "https://seeclickfix.com/api/v2/issues?place_url=hampton-city&state=VA";
  request(url, function(err, response, body) {
