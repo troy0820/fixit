@@ -14,7 +14,7 @@ router.get('/', function(req, res) {
  	var lng = _.pluck(list, 'lng');
  	var summary = _.pluck(list, 'summary');
  	var address = _.pluck(list, 'address');
- 	res.render('index', { title: 'Fix it | Hampton Roads', list: list, lat:lat, lng:lng, summary:summary, status:status, address:address });
+ 	res.render('index', { title: 'Fix it | Hampton Roads', list: list, lat:lat, lng:lng, summary:summary, address:address });
 });
 
 
