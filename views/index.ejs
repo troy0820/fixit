@@ -6,7 +6,11 @@
         <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.css">
      <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-      <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+     <link rel="stylesheet" href="/bower_components/leaflet.markercluster/dist/MarkerCluster.css">
+     <link rel="stylesheet" href="/bower_components/leaflet.markercluster/dist/MarkerCluster.Default.css">
+     <script src="/bower_components/leaflet.markercluster/dist/leaflet.markercluster-src.js"></script>
+
   </head>
   <body>
   <div class="container">
@@ -23,27 +27,32 @@
     	<% }
     } %></ul>
     <div id="map" style="height: 500px;">
-        <script type='text/javascript'> 
+        <script> 
   
-    // create a map in the "map" div, set the view to a given place and zoom
-    var map = L.map('map').setView(["<%= list[0].lat %>", "<%= list[0].lng %>"], 13);
+    var map = L.map('map').setView(["<%= list[0].lat %>", "<%= list[0].lng %>"], 11);
 
-    var foo = "<%= list[0].lat.toFixed(2) %>";
-                  //for points on map, use .toFixed(2) to put in lat, lng 
-
-
-// // add an OpenStreetMap tile layer
+  // // add an OpenStreetMap tile layer
      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
          attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
      }).addTo(map);
 
-// // add a marker in the given location, attach some popup content to it and open the popup
-    var lngth = "<%= list.length %>";
-    for(var i=0; i < lngth; i ++){
-    L.marker(["<%= list[0].lat %>", "<%= list[0].lng %>"]).addTo(map)
-    .bindPopup('<%= list[0].status %>. <br> <%= list[0].summary %>.')
-    .openPopup();
-      }
+      var lngth = "<%= list.length %>";
+      var arr = []
+          art = []
+          summ = []
+          stat = []
+          arr = "<%=lat.slice() %>";
+          art = "<%=lng.slice() %>";
+          summ = "<%= summary.slice() %>";
+          var summary = summ.split(',');
+          var array = arr.split(',');
+          var array2 = art.split(',');
+
+           for (var i = 0; i < lngth; i++) {
+          marker = new L.marker([array[i],array2[i]])
+    .bindPopup('Summary: ' + summary[i] )
+    .addTo(map);
+  }
 
       </script>
     </div>
