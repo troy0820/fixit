@@ -11,6 +11,7 @@ npm install
 npm install --save bower
 bower install bootstrap
 bower install font-awesome
+bower install leaflet.markercluster
 ```
 
 #API for this project is at this url.
