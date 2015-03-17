@@ -26,21 +26,25 @@
         <script type='text/javascript'> 
   
     // create a map in the "map" div, set the view to a given place and zoom
-    var map = L.map('map').setView([37.0876187938311, -76.4259942993522], 13);
+    var map = L.map('map').setView(["<%= list[0].lat %>", "<%= list[0].lng %>"], 13);
 
     var foo = "<%= list[0].lat.toFixed(2) %>";
                   //for points on map, use .toFixed(2) to put in lat, lng 
-    alert(foo);
+
 
 // // add an OpenStreetMap tile layer
- L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
- }).addTo(map);
+     L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+     }).addTo(map);
 
 // // add a marker in the given location, attach some popup content to it and open the popup
-     L.marker([37.0876187938311,  -76.4259942993522]).addTo(map)
-     .bindPopup('Issue #1: <br/><%= list[0].summary %>')
-     .openPopup();
+    var lngth = "<%= list.length %>";
+    for(var i=0; i < lngth; i ++){
+    L.marker(["<%= list[0].lat %>", "<%= list[0].lng %>"]).addTo(map)
+    .bindPopup('<%= list[0].status %>. <br> <%= list[0].summary %>.')
+    .openPopup();
+      }
+
       </script>
     </div>
     </div>
