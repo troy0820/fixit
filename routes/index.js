@@ -13,12 +13,11 @@ router.get('/', function(req, res) {
  	var lat = _.pluck(list,'lat');
  	var lng = _.pluck(list, 'lng');
  	var summary = _.pluck(list, 'summary');
- 	var status = _.pluck(list, 'status');
  	var address = _.pluck(list, 'address');
  	res.render('index', { title: 'Fix it | Hampton Roads', list: list, lat:lat, lng:lng, summary:summary, status:status, address:address });
 });
 
-  
+
 });
 
 module.exports = router;
