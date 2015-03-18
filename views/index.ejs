@@ -27,8 +27,8 @@
     	<% }
     } %></ul>
     <div id="map" style="height: 500px;">
-        <script> 
-  
+        <script>
+
     var map = L.map('map').setView(["<%= list[0].lat %>", "<%= list[0].lng %>"], 11);
 
   // // add an OpenStreetMap tile layer
@@ -48,12 +48,19 @@
           var array = arr.split(',');
           var array2 = art.split(',');
 
-           for (var i = 0; i < lngth; i++) {
-          marker = new L.marker([array[i],array2[i]])
-    .bindPopup('Summary: ' + summary[i] )
-    .addTo(map);
-  }
+          var markers = new L.MarkerClusterGroup();
 
+        for(var i= 0; i < lngth; i++) {
+          var marker = L.marker(new L.LatLng(array[i], array2[i]), {
+          });
+          marker.bindPopup('Summary: '+summary[i]);
+          markers.addLayer(marker);
+        }
+        map.addLayer(markers);
+        //        for (var i = 0; i < lngth; i++) {
+        //       marker = new L.marker([array[i],array2[i]])
+        // .bindPopup('Summary: ' + summary[i] )
+        // .addTo(map);
       </script>
     </div>
     </div>
