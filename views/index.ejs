@@ -43,6 +43,9 @@
           arr = "<%=lat.slice() %>";
           art = "<%=lng.slice() %>";
           summ = "<%= summary.slice() %>";
+
+          L.circle(["<%= list[0].lat %>","<%= list[0].lng %>"],500).addTo(map);
+
           var summary = summ.split(',');
           var array = arr.split(',');
           var array2 = art.split(',');
@@ -55,6 +58,7 @@
           marker.bindPopup('Summary: '+summary[i]);
           markers.addLayer(marker);
         }
+
         map.addLayer(markers);
         //        for (var i = 0; i < lngth; i++) {
         //       marker = new L.marker([array[i],array2[i]])
