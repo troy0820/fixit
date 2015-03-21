@@ -13,7 +13,7 @@ router.get('/', function(req, res) {
  	var lat = _.pluck(list,'lat');
  	var lng = _.pluck(list, 'lng');
  	var summary = _.pluck(list, 'summary');
- 	res.render('index', { title: 'Fix it | Hampton Roads', list: list, lat:lat, lng:lng, summary:summary });
+ 	res.render('index', { title: 'Fix it | Hampton', list: list, lat:lat, lng:lng, summary:summary });
 });
 
 
