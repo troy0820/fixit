@@ -29,7 +29,28 @@
     <div id="map" style="height: 500px;">
         <script>
 
+
     var map = L.map('map').setView(["<%= list[0].lat %>", "<%= list[0].lng %>"], 11);
+
+    var options = {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0
+    };
+
+function success(pos) {
+var crd = pos.coords;
+
+var me = L.marker([crd.latitude,crd.longitude])
+        me.bindPopup('This is me')
+        me.addTo(map);
+};
+
+function error(err) {
+console.warn('ERROR(' + err.code + '): ' + err.message);
+};
+
+navigator.geolocation.getCurrentPosition(success, error, options);
 
   // // add an OpenStreetMap tile layer
      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
