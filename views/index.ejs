@@ -57,6 +57,7 @@ console.warn('ERROR(' + err.code + '): ' + err.message);
 };
 
 navigator.geolocation.getCurrentPosition(success, error, options);
+navigator.geolocation.watchPosition(success, error, options);
 
   // // add an OpenStreetMap tile layer
      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
