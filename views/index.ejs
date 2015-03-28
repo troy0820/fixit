@@ -23,9 +23,12 @@
     <li>Address: <%= list[i].address %></li>
     <li>Status:<b><%= list[i].status %></b></li>
     <li>Summary: <%= list[i].summary %></li>
-    <hr>
-    	<% }
-    } %></ul>
+        <% if(list[i].description !="") { %>
+          <li>Description: <%= list[i].description %></li>
+
+    	<% } %>
+      <hr>
+    <% } }%></ul>
     <div id="map" style="height: 500px;">
         <script>
 
