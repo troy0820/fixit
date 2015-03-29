@@ -16,6 +16,10 @@ router.get('/', function(req, res) {
  	res.render('index', { title: 'Fix it | Hampton', list: list, lat:lat, lng:lng, summary:summary });
 });
 
+router.post('/',function(req,res){
+    res.send('Just a post route');
+  });
+
 
 });
 
