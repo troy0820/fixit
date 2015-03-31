@@ -19,6 +19,7 @@
     <ul class="list-unstyled">
     <% if(list){
     	for(var i=0; i < list.length; i++) { %>
+    <li>Issue:#<%=[i+1] %></li>
     <li>Address: <%= list[i].address %></li>
     <li>Status:<b><%= list[i].status %></b></li>
     <li>Summary: <%= list[i].summary %></li>
