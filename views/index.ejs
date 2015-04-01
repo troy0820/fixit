@@ -20,9 +20,9 @@
     <% if(list){
     	for(var i=0; i < list.length; i++) { %>
     <li><b>Issue:#<%=[i+1] %></b></li>
-    <li><b>Address: <%= list[i].address %></b></li>
-    <li><b>Status:<%= list[i].status %></b></li>
-    <li><b>Summary: <%= list[i].summary %></b></li>
+    <li>Address: <%= list[i].address %></li>
+    <li>Status:<%= list[i].status %></li>
+    <li>Summary: <%= list[i].summary %></li>
         <% if(list[i].description !="") { %>
           <li>Description: <%= list[i].description %></li>
 
