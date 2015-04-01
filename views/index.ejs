@@ -19,10 +19,10 @@
     <ul class="list-unstyled">
     <% if(list){
     	for(var i=0; i < list.length; i++) { %>
-    <li>Issue:#<%=[i+1] %></li>
-    <li>Address: <%= list[i].address %></li>
-    <li>Status:<b><%= list[i].status %></b></li>
-    <li>Summary: <%= list[i].summary %></li>
+    <li><b>Issue:#<%=[i+1] %></b></li>
+    <li><b>Address: <%= list[i].address %></b></li>
+    <li><b>Status:<%= list[i].status %></b></li>
+    <li><b>Summary: <%= list[i].summary %></b></li>
         <% if(list[i].description !="") { %>
           <li>Description: <%= list[i].description %></li>
 
