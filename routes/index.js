@@ -18,7 +18,8 @@ router.get('/', function(req, res) {
 });
 
 router.post('/',function(req,res){
-  var url = "https://seeclickfix.com/api/v2/issues?place_url=hampton-city&state=VA";
+  //req.body.city = city name from drop down
+  var url = "https://seeclickfix.com/api/v2/issues?place_url=hampton-city&state=VA"; //insert city in this link
   request(url, function(err, response, body) {
     if(err){
       console.error(err);
