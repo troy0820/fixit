@@ -95,7 +95,7 @@ navigator.geolocation.watchPosition(success, error, options);
           var marker = L.marker(new L.LatLng(array[i], array2[i]), {
           });
           L.circle([array[i],array2[i]]).setRadius(1609.34).addTo(map); //radius around marker should be a mile.
-          marker.bindPopup('Summary: '+summary[i]);
+          marker.bindPopup('Summary: '+summary[i] + '<br/> Issue# ' +[i+1]);
           markers.addLayer(marker);
         }
 
