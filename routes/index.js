@@ -4,7 +4,7 @@ var request = require('request');
 var _ = require('lodash');
 
 router.get('/', function(req, res) {
- var url = "https://seeclickfix.com/api/v2/issues?place_url=hampton-city&state=VA";
+ var url = "https://seeclickfix.com/api/v2/issues?place_url=hampton-city&state=VA&per_page=20";
  request(url, function(err, response, body) {
  	if(err){
  		console.error(err);
