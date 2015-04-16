@@ -1,4 +1,4 @@
-#See, Click, Fix it
+#See, Click, Fix it [![Build Status](https://travis-ci.org/troy0820/fixit.svg)](https://travis-ci.org/troy0820/fixit)
 
 This project is to take the api and provide front end work with express.
 This project will also map the coordinates of issues at the location.
