@@ -15,7 +15,7 @@
   <body>
   <div class="container">
     <h1><i class="fa fa-wrench"></i> <%= title %></h1>
-    <select class="" name="city">
+    <select class="city" name="city">
       <option value='hampton-city'>Hampton</option>
       <option value='newport-news'>Newport News</option>
       <option value='norfolk'>Norfolk</option>
@@ -92,18 +92,18 @@ navigator.geolocation.watchPosition(success, error, options);
           var markers = new L.MarkerClusterGroup();
 
         for(var i= 0; i < lngth; i++) {
-          var marker = L.marker(new L.LatLng(array[i], array2[i]), {
+             var marker = L.marker(new L.LatLng(array[i], array2[i]), {
           });
-          L.circle([array[i],array2[i]]).setRadius(1609.34).addTo(map); //radius around marker should be a mile.
-          marker.bindPopup('Summary: '+summary[i] + '<br/> Issue# ' +[i+1]);
-          markers.addLayer(marker);
-        }
+            L.circle([array[i],array2[i]]).setRadius(1609.34).addTo(map); //radius around marker should be a mile. Can change if need be.
+            marker.bindPopup('Summary: '+summary[i] + '<br/> Issue# ' +[i+1]);
+            markers.addLayer(marker);
+          }
 
         map.addLayer(markers);
-        //        for (var i = 0; i < lngth; i++) {
-        //       marker = new L.marker([array[i],array2[i]])
-        // .bindPopup('Summary: ' + summary[i] )
-        // .addTo(map);
+        /*        for (var i = 0; i < lngth; i++) {
+               marker = new L.marker([array[i],array2[i]])
+         .bindPopup('Summary: ' + summary[i] )
+         .addTo(map); */
       </script>
       <script src="/bower_components/jquery/dist/jquery.min.js"></script>
     </div>
