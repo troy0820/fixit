@@ -13,9 +13,10 @@
 
   </head>
   <body>
+  </style>
   <div class="container">
-    <h1><i class="fa fa-wrench"></i> <%= title %></h1>
-    <select class="city" name="city">
+    <h1 class='text-capitalize'><i class="fa fa-wrench"></i> Fix it | <%= title %></h1>
+    <!-- <select class="city" name="city">
       <option value='hampton-city'>Hampton</option>
       <option value='newport-news'>Newport News</option>
       <option value='norfolk'>Norfolk</option>
@@ -23,9 +24,10 @@
       <option value='virginia-beach'>Virginia Beach</option>
       <option value='suffolk'>Suffolk</option>
       <option value='portsmouth'>Portsmouth</option>
-    </select>
-
-    <h2>City of Hampton Issues: 1 - <%= list.length %></h2>
+    </select> -->
+    <a href="/newport-news" class="btn btn-info" role="button">Newport News</a>
+  
+    <h2 class='text-capitalize'>City of <%= title %> Issues: 1 - <%= list.length %></h2>
     <ul class="list-unstyled">
     <% if(list){
     	for(var i=0; i < list.length; i++) { %>
@@ -108,23 +110,23 @@ navigator.geolocation.watchPosition(success, error, options);
       <script src="/bower_components/jquery/dist/jquery.min.js"></script>
       <script src="/bower_components/jquery/dist/jquery.min.map"></script>
       <script type="text/javascript">
-      $(document).ready(function(){
-        $('.city').change(function() {
-          map.remove();
-          var data = $('.city').val();
+      // $(document).ready(function(){
+      //   $('.city').change(function() {
+      //     map.remove();
+      //     var data = $('.city').val();
 
-          $.ajax({
-            url:'/:id',
-            method:'GET',
-            cache: false,
-            data: { city: data }
-          })
-          .done(function(data){
-            $('.container').html(data);
-          })
-        })
+      //     $.ajax({
+      //       url:'/:id',
+      //       method:'GET',
+      //       cache: false,
+      //       data: { city: data }
+      //     })
+      //     .done(function(data){
+      //       $('.container').html(data);
+      //     })
+      //   })
 
-      })
+      // })
       </script>
     </div>
     </div>
