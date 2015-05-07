@@ -13,7 +13,7 @@ bower install bootstrap
 bower install font-awesome
 bower install leaflet.markercluster
 ```
-[Map picture](/public/images/map.png)
+![Map picture](/public/images/map.png)
 #API for this project is at this url.
 ```
 https://seeclickfix.com/api/v2/issues?place_url=hampton&state=VA
