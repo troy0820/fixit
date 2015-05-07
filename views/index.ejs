@@ -107,6 +107,25 @@ navigator.geolocation.watchPosition(success, error, options);
       </script>
       <script src="/bower_components/jquery/dist/jquery.min.js"></script>
       <script src="/bower_components/jquery/dist/jquery.min.map"></script>
+      <script type="text/javascript">
+      $(document).ready(function(){
+        $('.city').change(function() {
+          map.remove();
+          var data = $('.city').val();
+
+          $.ajax({
+            url:'/:id',
+            method:'GET',
+            cache: false,
+            data: { city: data }
+          })
+          .done(function(data){
+            $('.container').html(data);
+          })
+        })
+
+      })
+      </script>
     </div>
     </div>
   </body>
