@@ -4,7 +4,7 @@ var request = require('request');
 var _ = require('lodash');
 
 router.get('/', function(req, res) {
- var url = "https://seeclickfix.com/api/v2/issues?place_url=virginia-beach&state=VA&per_page=10&page=1";
+ var url = "https://seeclickfix.com/api/v2/issues?place_url=hampton-city&state=VA&per_page=10&page=1";
  request(url, function(err, response, body) {
  	if(err){
  		console.error(err);
@@ -16,6 +16,23 @@ router.get('/', function(req, res) {
  	var lng = _.pluck(list, 'lng');
  	var summary = _.pluck(list, 'summary');
  	res.render('index', { title: 'Fix it | Hampton', list: list, lat:lat, lng:lng, summary:summary, per_page:per_page });
+  });
+});
+
+router.get('/:city', function(req, res) {
+ var city = req.params.city;
+ var url = "https://seeclickfix.com/api/v2/issues?place_url="+ city +"&state=VA&per_page=10&page=1";
+ request(url, function(err, response, body) {
+  if(err){
+    console.error(err);
+  }
+  var list = JSON.parse(body).issues;
+  var metadata = JSON.parse(body).metadata;
+  var per_page = metadata.pagination.per_page;
+  var lat = _.pluck(list,'lat');
+  var lng = _.pluck(list, 'lng');
+  var summary = _.pluck(list, 'summary');
+  res.render('index', { title: 'Fix it | Hampton', list: list, lat:lat, lng:lng, summary:summary, per_page:per_page });
   });
 });
 
