@@ -15,7 +15,7 @@ router.get('/', function(req, res) {
  	var lat = _.pluck(list,'lat');
  	var lng = _.pluck(list, 'lng');
  	var summary = _.pluck(list, 'summary');
- 	res.render('index', { title: 'Fix it | Hampton', list: list, lat:lat, lng:lng, summary:summary, per_page:per_page });
+ 	res.render('index', { title: 'Hampton', list: list, lat:lat, lng:lng, summary:summary, per_page:per_page });
   });
 });
 
@@ -32,7 +32,7 @@ router.get('/:city', function(req, res) {
   var lat = _.pluck(list,'lat');
   var lng = _.pluck(list, 'lng');
   var summary = _.pluck(list, 'summary');
-  res.render('index', { title: 'Fix it | Hampton', list: list, lat:lat, lng:lng, summary:summary, per_page:per_page });
+  res.render('index', { title: city, list: list, lat:lat, lng:lng, summary:summary, per_page:per_page });
   });
 });
 
