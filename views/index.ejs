@@ -36,7 +36,7 @@
     <a href="/virginia-beach" class="btn btn-info" role="button">Virginia Beach</a>
   <hr/>
     <h2 class='text-capitalize'>City of <%= title %> Issues: 1 - <%= list.length %></h2>
-    <ul class="list-unstyled">
+   Per Page: <%=per_page %> <ul class="list-unstyled">
     <% if(list){
     	for(var i=0; i < list.length; i++) { %>
     <li><b>Issue:#<%=[i+1] %></b></li>
