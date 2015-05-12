@@ -46,6 +46,10 @@ router.get('/:city', function(req, res) {
   });
 });
 
+router.get('/:city/:id',function(req,res) {
+	res.send('This is the page you are on '+ req.params.id);
+});
+
 router.post('/',function(req,res){
   //req.body.city = city name from drop down
   var city = req.body.city;
