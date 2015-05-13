@@ -12,10 +12,12 @@ router.get('/', function(req, res) {
  	var list = JSON.parse(body).issues;
 	var metadata = JSON.parse(body).metadata;
   var per_page = metadata.pagination.per_page;
+  var pages = list.length;
  	var lat = _.pluck(list,'lat');
  	var lng = _.pluck(list, 'lng');
- 	var summary = _.pluck(list, 'summary');
- 	res.render('index', { title: 'Hampton', list: list, lat:lat, lng:lng, summary:summary, per_page:per_page });
+  var start = 1;
+  var summary = _.pluck(list, 'summary');
+ 	res.render('index', { title: 'Hampton', list: list, lat:lat, lng:lng, summary:summary, per_page:per_page, start:start,pages:pages});
   });
 });
 
@@ -62,7 +64,12 @@ router.get('/:city/:id',function(req,res) {
     var lat = _.pluck(list,'lat');
     var lng = _.pluck(list, 'lng');
     var summary = _.pluck(list, 'summary');
+    var start = 0;
     
+    if (id < pages) {
+      start = per_page * (id-1);
+    }
+
     if (city == 'newport-news') {
       city = "newport news";
     } else if (city == 'virginia-beach') { 
@@ -72,7 +79,7 @@ router.get('/:city/:id',function(req,res) {
     city = city.split('-');
     city = city[0];
     }
-    res.render('index', { title: city, list: list, lat:lat, lng:lng, summary:summary, per_page:per_page, pages:pages });
+    res.render('index', { title: city, list: list, lat:lat, lng:lng, summary:summary, per_page:per_page, pages:pages, start:start });
     });
 });
 
