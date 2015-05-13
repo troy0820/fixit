@@ -4,21 +4,21 @@ var request = require('request');
 var _ = require('lodash');
 
 router.get('/', function(req, res) {
- var url = "https://seeclickfix.com/api/v2/issues?place_url=hampton-city&state=VA&per_page=10&page=1";
- request(url, function(err, response, body) {
- 	if(err){
- 		console.error(err);
- 	}
- 	var list = JSON.parse(body).issues;
-	var metadata = JSON.parse(body).metadata;
-  var per_page = metadata.pagination.per_page;
-  var pages = list.length;
- 	var lat = _.pluck(list,'lat');
- 	var lng = _.pluck(list, 'lng');
-  var start = 1;
-  var summary = _.pluck(list, 'summary');
- 	res.render('index', { title: 'Hampton', list: list, lat:lat, lng:lng, summary:summary, per_page:per_page, start:start,pages:pages});
-  });
+   var url = "https://seeclickfix.com/api/v2/issues?place_url=hampton-city&state=VA&per_page=10&page=1";
+   request(url, function(err, response, body) {
+   	if(err){
+   		console.error(err);
+   	}
+   	var list = JSON.parse(body).issues;
+  	var metadata = JSON.parse(body).metadata;
+    var per_page = metadata.pagination.per_page;
+    var pages = list.length;
+   	var lat = _.pluck(list,'lat');
+   	var lng = _.pluck(list, 'lng');
+    var start = 0;
+    var summary = _.pluck(list, 'summary');
+   	res.render('index', { title: 'Hampton', list: list, lat:lat, lng:lng, summary:summary, per_page:pages, start:start,pages:pages});
+    });
 });
 
 router.get('/:city', function(req, res) {
