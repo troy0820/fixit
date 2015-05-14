@@ -4,7 +4,7 @@ var request = require('request');
 var _ = require('lodash');
 
 router.get('/', function(req, res) {
-   var url = "https://seeclickfix.com/api/v2/issues?place_url=hampton-city&state=VA&per_page=10&page=1";
+   var url = "https://seeclickfix.com/api/v2/issues?place_url=hampton&state=VA&per_page=10&page=1";
    request(url, function(err, response, body) {
    	if(err){
    		console.error(err);
@@ -83,7 +83,7 @@ router.get('/:city/:id',function(req,res) {
       title = "newport news";
     } else if (city == 'virginia-beach') { 
       title = "virginia beach";
-    } else if(city == 'hampton-city') {
+    } else if(city == 'hampton') {
       title = 'hampton';
     } else {
     title = city;

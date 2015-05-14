@@ -19,7 +19,7 @@
     
     <br/>
     <h2>The Seven Cities</h2>
-    <a href="/hampton-city" class="btn btn-info" role="button">Hampton</a>
+    <a href="/hampton" class="btn btn-info" role="button">Hampton</a>
     <a href="/newport-news" class="btn btn-info" role="button">Newport News</a>
     <a href="/norfolk" class="btn btn-info" role="button">Norfolk</a>
     <a href="/suffolk" class="btn btn-info" role="button">Suffolk</a>
@@ -32,7 +32,7 @@
 <% if (pages > 1 &&  list.length == 20) { %>
 <a href='/<%= city %>/<%= next_page %>'>Next Page</a> 
 <% } else { %>
-<a href='/<%=city%>/1'><%= city %></a>
+<a href='/<%=city%>/1'><%= title %></a>
 <% } %>
 <ul class="list-unstyled">
     <% if(list){
