@@ -27,9 +27,9 @@
     <a href="/portsmouth" class="btn btn-info" role="button">Portsmouth</a>
     <a href="/virginia-beach" class="btn btn-info" role="button">Virginia Beach</a>
   <hr/>
-    <h2 class='text-capitalize'>City of <%= title %> Issues: <%= start + 1%> - <%= start + per_page %></h2>
+    <h2 class='text-capitalize'>City of <%= title %> Issues: <%= start + 1%> - <%= start + list.length %></h2>
 <!-- This is the pagination start -->   
-<a href='/virginia-beach/2'>Page: 2</a> 
+<a href='/<%= city %>/2'>Page: 2</a> 
 
 <ul class="list-unstyled">
     <% if(list){
