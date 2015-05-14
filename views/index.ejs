@@ -30,9 +30,9 @@
     <h2 class='text-capitalize'>City of <%= title %> Issues: <%= start + 1%> - <%= start + list.length %></h2>
 <!-- This is the pagination start -->   
 <% if (pages > 1 &&  list.length == 20) { %>
-<a href='/<%= city %>/<%= next_page %>'>Next Page</a> 
+<a href='/<%= city %>/<%= next_page %>'><h4 class='text-capitalize'>Next Page</h4></a> 
 <% } else { %>
-<a href='/<%=city%>/1'><%= title %></a>
+<a href='/<%=city%>/1'><h4 class='text-capitalize'><%= title %></h4></a>
 <% } %>
 <ul class="list-unstyled">
     <% if(list){
