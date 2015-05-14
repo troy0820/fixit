@@ -83,10 +83,10 @@ router.get('/:city/:id',function(req,res) {
       title = "newport news";
     } else if (city == 'virginia-beach') { 
       title = "virginia beach";
-    }
-    else {
-    title = city.split('-');
-    title = city[0];
+    } else if(city == 'hampton-city') {
+      title = 'hampton';
+    } else {
+    title = city;
     }
     res.render('index', { title: title, list: list, lat:lat, lng:lng, summary:summary, per_page:per_page, pages:pages, 
     start:start, city:city, next_page:next_page });
