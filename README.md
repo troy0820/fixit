@@ -16,7 +16,7 @@ bower install leaflet.markercluster
 ![Map picture](/public/images/map.png)
 #API for this project is at this url.
 ```
-https://seeclickfix.com/api/v2/issues?place_url=hampton-city&state=VA
+https://seeclickfix.com/api/v2/issues?place_url=hampton&state=VA
 ```
 
 ###This is for the city of Hampton VA 
