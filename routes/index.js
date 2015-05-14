@@ -68,8 +68,8 @@ router.get('/:city/:id',function(req,res) {
     var lng = _.pluck(list, 'lng');
     var summary = _.pluck(list, 'summary');
     var start = 0;
-    
-    if (id < pages) {
+    console.log('This is how many pages ', pages);
+    if (id <= pages) {
       start = per_page * (id-1);
     }
 
@@ -82,7 +82,7 @@ router.get('/:city/:id',function(req,res) {
     city = city.split('-');
     city = city[0];
     }
-    res.render('index', { title: city, list: list, lat:lat, lng:lng, summary:summary, per_page:per_page, pages:pages, start:start });
+    res.render('index', { title: city, list: list, lat:lat, lng:lng, summary:summary, per_page:per_page, pages:pages, start:start, city:city });
     });
 });
 
