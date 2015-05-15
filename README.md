@@ -14,9 +14,15 @@ bower install font-awesome
 bower install leaflet.markercluster
 ```
 ![Map picture](/public/images/map.png)
-#API for this project is at this url.
+#API endpoints for this project are at these urls.
 ```
 https://seeclickfix.com/api/v2/issues?place_url=hampton&state=VA
+https://seeclickfix.com/api/v2/issues?place_url=newport-news&state=VA
+https://seeclickfix.com/api/v2/issues?place_url=suffolk&state=VA
+https://seeclickfix.com/api/v2/issues?place_url=norfolk&state=VA
+https://seeclickfix.com/api/v2/issues?place_url=portsmouth&state=VA
+https://seeclickfix.com/api/v2/issues?place_url=chesapeake&state=VA
+https://seeclickfix.com/api/v2/issues?place_url=virginia-beach&state=VA
 ```
-
-###This is for the city of Hampton VA 
+##Documentation for metadata are included in /GET request of each endpoint, i.e pages, per_page, etc.
+ 
