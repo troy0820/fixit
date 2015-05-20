@@ -9,15 +9,15 @@ router.get('/', function(req, res) {
    	if(err){
    		console.error(err);
    	}
-   	var list = JSON.parse(body).issues;
-  	var metadata = JSON.parse(body).metadata;
-    var per_page = metadata.pagination.per_page;
-    var city = 'hampton';
-    var pages = list.length;
-   	var lat = _.pluck(list,'lat');
-   	var lng = _.pluck(list, 'lng');
-    var start = 0;
-    var summary = _.pluck(list, 'summary');
+   	 var list = JSON.parse(body).issues;
+  	 var metadata = JSON.parse(body).metadata;
+   	 var per_page = metadata.pagination.per_page;
+   	 var city = 'hampton';
+   	 var pages = list.length;
+  	 var lat = _.pluck(list,'lat');
+   	 var lng = _.pluck(list, 'lng');
+    	 var start = 0;
+   	 var summary = _.pluck(list, 'summary');
    	res.render('index', { title: 'Hampton', list: list, lat:lat, lng:lng, summary:summary, per_page:pages, start:start,pages:pages, city:city});
     });
 });
