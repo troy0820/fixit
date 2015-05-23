@@ -16,9 +16,14 @@ router.get('/', function(req, res) {
    	 var pages = list.length;
   	 var lat = _.pluck(list,'lat');
    	 var lng = _.pluck(list, 'lng');
-    	 var start = 0;
+     var start = 0;
    	 var summary = _.pluck(list, 'summary');
-   	res.render('index', { title: 'Hampton', list: list, lat:lat, lng:lng, summary:summary, per_page:pages, start:start,pages:pages, city:city});
+     var address = _.pluck(list, 'address');
+   	res.render('index', { title: 'Hampton', list: list, 
+      lat:lat, lng:lng, 
+      summary:summary, per_page:pages, 
+      start:start,pages:pages, city:city, 
+      address:address});
     });
 });
 
@@ -68,6 +73,7 @@ router.get('/:city/:id',function(req,res) {
     var lat = _.pluck(list,'lat');
     var lng = _.pluck(list, 'lng');
     var summary = _.pluck(list, 'summary');
+    var address = _.pluck(list, 'address');
     var start = 0;
     var next_page = 2;
     console.log('This is how many pages ', pages);
@@ -89,7 +95,7 @@ router.get('/:city/:id',function(req,res) {
     title = city;
     }
     res.render('index', { title: title, list: list, lat:lat, lng:lng, summary:summary, per_page:per_page, pages:pages, 
-    start:start, city:city, next_page:next_page });
+    start:start, city:city, next_page:next_page, address: address });
     });
 });
 
