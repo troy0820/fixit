@@ -49,7 +49,6 @@
     <% } }%></ul>
     <div id="map" style="height: 500px;">
         <script>
-
         var RedIcon = L.Icon.Default.extend({
           options: {
                 iconUrl: '/marker-icon-red.png'
@@ -92,18 +91,17 @@ navigator.geolocation.watchPosition(success, error, options);
           arr = "<%=lat.slice() %>";
           art = "<%=lng.slice() %>";
           summ = "<%= summary.slice() %>";
-
+          addr ="<%= address.slice() %>";
           var summary = summ.split(',');
           var array = arr.split(',');
           var array2 = art.split(',');
-
           var markers = new L.MarkerClusterGroup();
 
         for(var i= 0; i < lngth; i++) {
              var marker = L.marker(new L.LatLng(array[i], array2[i]), {
           });
             L.circle([array[i],array2[i]]).setRadius(1609.34).addTo(map); //radius around marker should be a mile. Can change if need be.
-            marker.bindPopup('Summary: '+summary[i] + '<br/> Issue# ' +[i+1]);
+            marker.bindPopup('Summary: '+summary[i] + '<br/>');
             markers.addLayer(marker);
           }
 
