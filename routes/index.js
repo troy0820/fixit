@@ -31,30 +31,7 @@ router.get('/:city', function(req, res) {
   var city = req.params.city;
 
   res.redirect('/' + city + '/1');
- // var city = req.params.city;
- // var url = "https://seeclickfix.com/api/v2/issues?place_url="+ city +"&state=VA&per_page=20&page=1";
- // request(url, function(err, response, body) {
- //  if(err){
- //    console.error(err);
- //  }
- //  var list = JSON.parse(body).issues;
- //  var metadata = JSON.parse(body).metadata;
- //  var per_page = metadata.pagination.per_page;
- //  var lat = _.pluck(list,'lat');
- //  var lng = _.pluck(list, 'lng');
- //  var summary = _.pluck(list, 'summary');
-  
- //  if (city == 'newport-news') {
- //    city = "newport news";
- //  } else if (city == 'virginia-beach') { 
- //    city = "virginia beach";
- //  }
- //  else {
- //  city = city.split('-');
- //  city = city[0];
- //  }
- //  res.render('index', { title: city, list: list, lat:lat, lng:lng, summary:summary, per_page:per_page });
- //  });
+
 });
 
 router.get('/:city/:id',function(req,res) {
