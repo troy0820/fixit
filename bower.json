@@ -1,0 +1,30 @@
+{
+  "name": "fixit",
+  "version": "0.0.2",
+  "homepage": "https://github.com/troy0820/fixit",
+  "authors": [
+    "Troy Connor <troy.connor@yahoo.com>"
+  ],
+  "description": "Map app for see click fix it in Hampton Roads",
+  "main": "app.js",
+  "keywords": [
+    "see",
+    "click",
+    "fix",
+    "it",
+    "map"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.2",
+    "font-awesome": "~4.3.0",
+    "leaflet.markercluster": "~0.4.0"
+  }
+}
