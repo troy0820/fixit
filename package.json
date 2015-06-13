@@ -25,5 +25,8 @@
     "url": "https://github.com/troy0820/fixit.git"
   },
   "author": "Troy M. Connor",
-  "License": "MIT"
+  "License": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.0"
+  }
 }
