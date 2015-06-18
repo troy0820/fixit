@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var request = require('request');
 var _ = require('lodash');
+var geocode = require('geocoder');
+
 
 router.get('/', function(req, res) {
    var url = "https://seeclickfix.com/api/v2/issues?place_url=hampton&state=VA&per_page=10&page=1";
@@ -24,6 +26,16 @@ router.get('/', function(req, res) {
       summary:summary, per_page:pages, 
       start:start,pages:pages, city:city, 
       address:address});
+      
+      //this is the code that takes the lat/lng and makes it a zip code
+      geocode.reverseGeocode(33.7489, -84.3789, function(err, data) {
+        var result = (data.results[0].address_components[7].short_name);
+        if(err) {
+          console.log('This is an error');
+        }
+        console.log('This is the zip code ' + result);
+      })
+
     });
 });
 
