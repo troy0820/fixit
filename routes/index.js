@@ -35,6 +35,7 @@ router.get('/', function(req, res) {
         }
         console.log('This is the zip code ' + result);
       })
+	//reduce the object from the request to fit the zip requested.
 
     });
 });
