@@ -36,6 +36,18 @@ router.get('/', function(req, res) {
         console.log('This is the zip code ' + result);
       })
 	//reduce the object from the request to fit the zip requested.
+ 
+ /*  pseudo code 
+     take lat and long and geocode.reverseGeocode them and save as array 
+     pass to function makezipcodes to get count of issues per zip
+     
+ function makezip(zipcodes) {
+        return zipcodess.reduce(function(all, item, index) {  
+          all[item] = ++all[item] || 1;
+            return all;        
+            },{});    
+  }
+*/
 
     });
 });
