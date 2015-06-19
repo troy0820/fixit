@@ -27,9 +27,9 @@ router.get('/', function(req, res) {
       start:start,pages:pages, city:city, 
       address:address});
       
-      //this is the code that takes the lat/lng and makes it a zip code
-      geocode.reverseGeocode(33.7489, -84.3789, function(err, data) {
-        var result = (data.results[0].address_components[7].short_name);
+      //put loop of all points to reduce function 
+      geocode.reverseGeocode(lat[0], lng[0], function(err, data) {
+       var result = (data.results[0].address_components[6].short_name);
         if(err) {
           console.log('This is an error');
         }
