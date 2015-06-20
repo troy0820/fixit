@@ -27,14 +27,20 @@ router.get('/', function(req, res) {
       start:start,pages:pages, city:city, 
       address:address});
       
-      //put loop of all points to reduce function 
-      geocode.reverseGeocode(lat[0], lng[0], function(err, data) {
+	 //put loop of all points to reduce function
+      for(var i=0; i < lat.length; i++) { 
+      geocode.reverseGeocode(lat[i], lng[i], function(err, data) {
        var result = (data.results[0].address_components[6].short_name);
         if(err) {
           console.log('This is an error');
         }
-        console.log('This is the zip code ' + result);
+	     console.log('result', result);
+		
       })
+   }
+    	
+      
+ 
 	//reduce the object from the request to fit the zip requested.
  
  /*  pseudo code 
