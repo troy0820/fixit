@@ -21,26 +21,33 @@ router.get('/', function(req, res) {
      var start = 0;
    	 var summary = _.pluck(list, 'summary');
      var address = _.pluck(list, 'address');
-   	res.render('index', { title: 'Hampton', list: list, 
-      lat:lat, lng:lng, 
-      summary:summary, per_page:pages, 
-      start:start,pages:pages, city:city, 
-      address:address});
+   	
       
 	 //put loop of all points to reduce function
+    var zips = [];
       for(var i=0; i < lat.length; i++) { 
       geocode.reverseGeocode(lat[i], lng[i], function(err, data) {
        var result = (data.results[0].address_components[6].short_name);
         if(err) {
           console.log('This is an error');
         }
+        
+        zips.push(result);
 	     console.log('result', result);
-		
+
+   console.log('These are the zips ' + zips);
+		  
       })
    }
+   console.log('New zip codes '+ zips[0]);
+
     	
-      
- 
+   /*res.render('index', { title: 'Hampton', list: list, 
+      lat:lat, lng:lng, 
+      summary:summary, per_page:pages, 
+      start:start,pages:pages, city:city, 
+      address:address});   
+ */
 	//reduce the object from the request to fit the zip requested.
  
  /*  pseudo code 
