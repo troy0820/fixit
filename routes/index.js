@@ -3,12 +3,12 @@ var router = express.Router();
 var request = require('request');
 var _ = require('lodash');
 var geocode = require('geocoder');
-
+var async = require('async')
 
 router.get('/', function(req, res) {
-   var url = "https://seeclickfix.com/api/v2/issues?place_url=hampton&state=VA&per_page=10&page=1";
+   var url = "https://seeclickfix.com/api/v2/issues?place_url=hampton&state=VA&per_page=20&page=1";
    request(url, function(err, response, body) {
-   	if(err){
+   	if (err) {
    		console.error(err);
    	}
    	 var list = JSON.parse(body).issues;
@@ -21,42 +21,35 @@ router.get('/', function(req, res) {
      var start = 0;
    	 var summary = _.pluck(list, 'summary');
      var address = _.pluck(list, 'address');
-   	
-      
-	 //put loop of all points to reduce function
-    var zips = [];
-      for(var i=0; i < lat.length; i++) { 
-      geocode.reverseGeocode(lat[i], lng[i], function(err, data) {
-       var result = (data.results[0].address_components[6].short_name);
-        if(err) {
-          console.log('This is an error');
-        }
-        
-        zips.push(result);
-	     console.log('result', result);
+     var zips = [];
 
-   console.log('These are the zips ' + zips);
-		  
-      })
-   }
-   console.log('New zip codes '+ zips[0]);
+async.parallel(lat.map(function(_, index) {
+  return function(callback) { //return immediately to make array of async tasks. 
+    geocode.reverseGeocode(lat[index], lng[index], function(err, data) {
+      if (err) {
+        return callback(err);
+      }
+
+      var result = (data.results[0].address_components[6].short_name);
+      zips.push(result);
+      console.log('result', result);
+      callback(null);
+    });
+  };
+}), function(err) { //final callback
+  if (err) {
+    console.log('This is an error');
+  }
+  zips = _.union(zips);
+  console.log('These are the zips ' + zips);
 
     	
-   /*res.render('index', { title: 'Hampton', list: list, 
+   res.render('index', { title: 'Hampton', list: list, 
       lat:lat, lng:lng, 
       summary:summary, per_page:pages, 
       start:start,pages:pages, city:city, 
-      address:address});   
- */
-	//reduce the object from the request to fit the zip requested.
- 
- /*  pseudo code 
-     take lat and long and geocode.reverseGeocode them and save as array 
-     pass to function makezipcodes to get count of issues per zip
-     
-
-  }
-*/
+      address:address,zips:zips});   
+ });
 
     });
 });
