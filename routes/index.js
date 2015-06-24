@@ -39,7 +39,7 @@ async.parallel(lat.map(function(_, index) {
   if (err) {
     console.log('This is an error');
   }
-  zips = _.union(results);
+  var zips = _.union(results);
   console.log('These are the zips ' + zips);
 
     	
@@ -63,6 +63,9 @@ router.get('/:city', function(req, res) {
 router.get('/:city/:id',function(req,res) {
 	var city = req.params.city;
   var id = req.params.id;
+  if (city == 'hampton') {
+    res.redirect('/');
+  }
   var url = "https://seeclickfix.com/api/v2/issues?place_url="+ city +"&state=VA&per_page=20&page=" + id;
  
    request(url, function(err, response, body) {
