@@ -16,7 +16,13 @@
   </style>
   <div class="container">
     <h1 class='text-capitalize'><i class="fa fa-wrench"></i> Fix it | <%= title %></h1>
-    <h2>Zip codes:</h2>
+    <h2>Zip codes:</h2>	
+	<ul class="list-unstyled"><h3>
+	<% if (typeof(zips) !== "undefined") { %>
+	   <% for(var i=0; i < zips.length; i++) { %>
+		<li><%= zips[i] %></li>
+		<% } } %></h3>
+		</ul>
    
     
     <h2>The Seven Cities</h2>
