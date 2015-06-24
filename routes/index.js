@@ -21,7 +21,7 @@ router.get('/', function(req, res) {
      var start = 0;
    	 var summary = _.pluck(list, 'summary');
      var address = _.pluck(list, 'address');
-     var zips = [];
+
 
 async.parallel(lat.map(function(_, index) {
   return function(callback) { //return immediately to make array of async tasks. 
@@ -31,16 +31,15 @@ async.parallel(lat.map(function(_, index) {
       }
 
       var result = (data.results[0].address_components[6].short_name);
-      zips.push(result);
       console.log('result', result);
-      callback(null);
+      callback(null, result);
     });
   };
-}), function(err) { //final callback
+}), function(err, results) { //final callback
   if (err) {
     console.log('This is an error');
   }
-  zips = _.union(zips);
+  zips = _.union(results);
   console.log('These are the zips ' + zips);
 
     	
