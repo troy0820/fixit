@@ -3,7 +3,7 @@ var router = express.Router();
 var request = require('request');
 var _ = require('lodash');
 var geocode = require('geocoder');
-var async = require('async')
+var async = require('async');
 
 router.get('/', function(req, res) {
    var url = "https://seeclickfix.com/api/v2/issues?place_url=hampton&state=VA&per_page=20&page=1";
