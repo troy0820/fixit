@@ -6,10 +6,12 @@ rp("https://seeclickfix.com/api/v2/issues?place_url=hampton&state=VA&per_page=20
 		var list = JSON.parse(body).issues;
 		var lat = _.pluck(list, 'lat');
 		var lng = _.pluck(list, 'lng');
-		var lat_lng = {
+		
+		var lat_lng = { //make an object to return to next async func.
 			lat: lat,
 			lng: lng
 		};
+
 		return lat_lng;
    })
    	.then(function(lat_lng) {
@@ -17,4 +19,5 @@ rp("https://seeclickfix.com/api/v2/issues?place_url=hampton&state=VA&per_page=20
    	})
    	.finally(function(){
    		console.log('We are finally done here :D');
-   	});
+   	})
+   	.catch(console.error);
