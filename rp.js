@@ -13,31 +13,36 @@ rp("https://seeclickfix.com/api/v2/issues?place_url=hampton&state=VA&per_page=20
 			lat: lat,
 			lng: lng
 		};
-
 		return lat_lng;
    })
    	.then(function(lat_lng) {
-   	
-   		console.log('these are the lats \n' + lat_lng.lat + '\n and longs \n' + lat_lng.lng);
-     
-  })
-   	.finally(function(){
-   		console.log('We are finally done here :D');   		
-  })
-   	.catch(console.error);
-
-   	
-   	var getzips = function(lat, lng) {
+   		var zips = [];
+   		console.log('lats \n' + lat_lng.lat + '\n longs \n' + lat_lng.lng); 
+   		var getzips = function(lat, lng) {
    		return new Promise(function(resolve, reject) {
    			geocode.reverseGeocode(lat, lng, function(err, data) {
       			if (err) { reject(err);}			
 			 	 var result = (data.results[0].address_components[6].short_name);
 		      		console.log('result', result);
 		      		resolve(result);
+		      		zips.push(result);
+		      		zips = _.union(zips);
+		      		console.log(zips);
 		   				 	});
 		   				});
 		   			}
-   	getzips(40.730885,-73.997383)
-   	.then(function(data) {
-   		console.log('This is the city son!!!',data);
-   	});
+
+		   	lat_lng.lat.map(function(_,index){      
+   				return getzips(lat_lng.lat[index],lat_lng.lng[index])
+
+				})
+   		
+  	})   
+   	.finally(function(){
+   		console.log('We are finally done here ');   		
+   	
+  })
+   	.catch(console.error);
+
+   	
+   		
