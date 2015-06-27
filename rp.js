@@ -2,7 +2,7 @@ var rp = require('request-promise');
 var _ = require('lodash');
 var Promise = require('bluebird');
 var geocode = require('geocoder');
-
+var zips = [];
 rp("https://seeclickfix.com/api/v2/issues?place_url=hampton&state=VA&per_page=20&page=1")
    .then(function(body) {
 		var list = JSON.parse(body).issues;
@@ -16,7 +16,6 @@ rp("https://seeclickfix.com/api/v2/issues?place_url=hampton&state=VA&per_page=20
 		return lat_lng;
    })
    	.then(function(lat_lng) {
-   		var zips = [];
    		console.log('lats \n' + lat_lng.lat + '\n longs \n' + lat_lng.lng); 
    		var getzips = function(lat, lng) {
    		return new Promise(function(resolve, reject) {
@@ -24,25 +23,25 @@ rp("https://seeclickfix.com/api/v2/issues?place_url=hampton&state=VA&per_page=20
       			if (err) { reject(err);}			
 			 	 var result = (data.results[0].address_components[6].short_name);
 		      		console.log('result', result);
+					zips.push(result);
 		      		resolve(result);
-		      		zips.push(result);
+		      		resolve(zips);
 		      		zips = _.union(zips);
-		      		console.log(zips);
+		      		console.log('zip codes',zips);
 		   				 	});
 		   				});
 		   			}
 
-		   	lat_lng.lat.map(function(_,index){      
-   				return getzips(lat_lng.lat[index],lat_lng.lng[index])
-
-				})
-   		
-  	})   
+		   	
+		   		 lat_lng.lat.map(function(_,index) {      
+   					return getzips(lat_lng.lat[index],lat_lng.lng[index])
+				});		   	
+   	})
    	.finally(function(){
    		console.log('We are finally done here ');   		
    	
   })
    	.catch(console.error);
 
-   	
+
    		
