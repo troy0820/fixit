@@ -13,10 +13,11 @@ rp("https://seeclickfix.com/api/v2/issues?place_url=hampton&state=VA&per_page=20
 			lat: lat,
 			lng: lng
 		};
+		console.log('lats \n' + lat_lng.lat + '\n longs \n' + lat_lng.lng); 
+
 		return lat_lng;
    })
    	.then(function(lat_lng) {
-   		console.log('lats \n' + lat_lng.lat + '\n longs \n' + lat_lng.lng); 
    		var getzips = function(lat, lng) {
    		return new Promise(function(resolve, reject) {
    			geocode.reverseGeocode(lat, lng, function(err, data) {
