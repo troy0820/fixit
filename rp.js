@@ -5,7 +5,8 @@ var _ = require('lodash');
 var Promise = require('bluebird');
 var geocode = require('geocoder');
 var zips = [];
-rp("https://seeclickfix.com/api/v2/issues?place_url=hampton&state=VA&per_page=20&page=1")
+var url = "https://seeclickfix.com/api/v2/issues?place_url=hampton&state=VA&per_page=20&page=1";
+rp(url)
    .then(function(body) {
 		var list = JSON.parse(body).issues;
 		var lat = _.pluck(list, 'lat');
