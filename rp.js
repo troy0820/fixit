@@ -1,3 +1,5 @@
+"use strict";
+
 var rp = require('request-promise');
 var _ = require('lodash');
 var Promise = require('bluebird');
@@ -36,6 +38,7 @@ rp("https://seeclickfix.com/api/v2/issues?place_url=hampton&state=VA&per_page=20
 		   	
 		   		 lat_lng.lat.map(function(_,index) {      
    					return getzips(lat_lng.lat[index],lat_lng.lng[index])
+
 				});		   	
    	})
    	.finally(function(){
