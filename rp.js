@@ -25,7 +25,7 @@ rp(url)
    		return new Promise(function(resolve, reject) {
    			geocode.reverseGeocode(lat, lng, function(err, data) {
       			if (err) { reject(err);}			
-			 	 var result = (data.results[0].address_components[6].short_name);
+			 	 var result = data.results[0].address_components[6].short_name;
 		      		console.log('result', result);
 					zips.push(result);
 		      		resolve(result);
