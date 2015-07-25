@@ -18,9 +18,9 @@ router.get('/', function(req, res) {
    	 var pages = list.length;
   	 var lat = _.pluck(list,'lat');
    	 var lng = _.pluck(list, 'lng');
-     var start = 0;
+	 var start = 0;
    	 var summary = _.pluck(list, 'summary');
-     var address = _.pluck(list, 'address');
+     	 var address = _.pluck(list, 'address');
 
 
 async.parallel(lat.map(function(_, index) {
