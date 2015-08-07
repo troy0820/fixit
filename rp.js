@@ -1,4 +1,3 @@
-"use strict";
 
 var rp = require('request-promise');
 var _ = require('lodash');
@@ -29,14 +28,13 @@ rp(url)
 		      	 resolve(result);
 							});
 		   				});
-		   			}
-
+		   			};
 		   	
 		Promise.all(lat_lng.lat.map(function(_,index) {      
-   			return getzips(lat_lng.lat[index],lat_lng.lng[index])
+   			return getzips(lat_lng.lat[index],lat_lng.lng[index]);
    				})
 		   		).then(function(data) {
-		   			let zips = _.union(data)
+		   			let zips = _.union(data);
 		   		 	console.log('These are the zip codes',zips);
 		   		 });		   	
    	})
