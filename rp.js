@@ -26,24 +26,22 @@ rp(url)
    			geocode.reverseGeocode(lat, lng, function(err, data) {
       			if (err) { reject(err);}			
 			 	 var result = data.results[0].address_components[6].short_name;
-		      		console.log('result', result);
-					zips.push(result);
-		      		resolve(result);
-		      		resolve(zips);
-		      		zips = _.union(zips);
-		      		console.log('zip codes',zips);
-		   				 	});
+		      	 resolve(result);
+							});
 		   				});
 		   			}
 
 		   	
-		   		 lat_lng.lat.map(function(_,index) {      
-   					return getzips(lat_lng.lat[index],lat_lng.lng[index])
-
-				});		   	
+		Promise.all(lat_lng.lat.map(function(_,index) {      
+   			return getzips(lat_lng.lat[index],lat_lng.lng[index])
+   				})
+		   		).then(function(data) {
+		   			let zips = _.union(data)
+		   		 	console.log('These are the zip codes',zips);
+		   		 });		   	
    	})
-   	.finally(function(){
-   		console.log('We are finally done here ');   		
+   	.finally(function() {
+   		console.log('We are finally done here');   		
    	
   })
    	.catch(console.error);
