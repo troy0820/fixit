@@ -1,7 +1,7 @@
 var request = require('request');
 	promise = require('bluebird');
 	_ = require('lodash');
-
+	geocode = require('geocoder');
 promise.promisifyAll(request);
 
 request.getAsync("https://seeclickfix.com/api/v2/issues?place_url=hampton&state=VA&per_page=20&page=1")
@@ -16,5 +16,18 @@ request.getAsync("https://seeclickfix.com/api/v2/issues?place_url=hampton&state=
 			console.log('these are the lats', lat);
 		});
 
+//how to promisify geocode 	
+promise.promisifyAll(geocode);
 
+				var getzips = function(lat,lng) {
+					geocode.reverseGeocodeAsync(lat,lng)
+					  .then(function(data) {
+					  	var zips = data.results[0].address_components[6].short_name;
+					  	return zips;
+					  })
+					  .then(function(zips) {
+					  	console.log('we got the zips ',zips);
+					  });
+					}
 
+getzips(37.0247947,-76.3406704);
