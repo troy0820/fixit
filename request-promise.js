@@ -30,4 +30,6 @@ promise.promisifyAll(geocode);
 					  });
 					}
 
-getzips(37.0247947,-76.3406704);
+//promise.All() lat array and lat.map(function(_,index) {
+			//getzips(lat[index],lng[index])
+//}
