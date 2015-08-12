@@ -9,12 +9,17 @@ request.getAsync("https://seeclickfix.com/api/v2/issues?place_url=hampton&state=
 			var data = JSON.parse(body).issues;
 			return data;
 		}).then(function(data) {
-			console.log('\n I got the data to this point \n',data);
+		//	console.log('\n I got the data to this point \n',data);
 			var lat = _.pluck(data,'lat');
-			return lat;
-		}).then(function(lat) {
-			console.log('these are the lats', lat);
-		});
+			    lng = _.pluck(data, 'lng');
+			    lat_lng = {
+			    	lat:lat,
+			    	lng:lng
+			    };
+			return lat_lng;
+		}).then(function(lat_lng) {
+			console.log('these are the lats', lat_lng.lat, ' and longs',lat_lng.lng);
+		
 
 //how to promisify geocode 	
 promise.promisifyAll(geocode);
@@ -27,9 +32,15 @@ promise.promisifyAll(geocode);
 					  })
 					  .then(function(zips) {
 					  	console.log('we got the zips ',zips);
+					  })
+					  .catch(function(err) {
+					  	console.log(err);
 					  });
-					}
+					};
 
-//promise.All() lat array and lat.map(function(_,index) {
-			//getzips(lat[index],lng[index])
-//}
+	promise.all(lat_lng.lat.map(function(_,index) {
+			return getzips(lat_lng.lat[index],lat_lng.lng[index]);
+			})
+	);
+
+});
