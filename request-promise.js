@@ -31,7 +31,7 @@ promise.promisifyAll(geocode);
 		  .then(function(data) {
 		  	var zips = data.results[0].address_components[6].short_name;
 		  	resolve(zips);
-		  })
+		  });
 		})
 		 .catch(function(err) {
 		  	console.log(err);
@@ -44,5 +44,5 @@ promise.promisifyAll(geocode);
 		).then(function(data) {
 			var zipcodes = _.union(data);
 			console.log('zipcodes:(uniqued) ',zipcodes);
-		})
+		});
 });
