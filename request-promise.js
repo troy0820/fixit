@@ -43,6 +43,6 @@ promise.promisifyAll(geocode);
 			})
 		).then(function(data) {
 			var zipcodes = _.union(data);
-			console.log('zipcodes:(uniqued) ',zipcodes);
+			console.log('\n zipcodes:(uniqued):\n',zipcodes.toString());
 		});
 });
