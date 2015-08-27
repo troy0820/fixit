@@ -11,7 +11,7 @@ request.getAsync("https://seeclickfix.com/api/v2/issues?place_url=hampton&state=
 		}).then(function(data) {
 		//	console.log('\n I got the data to this point \n',data);
 			var lat = _.pluck(data,'lat');
-			    lng = _.pluck(data, 'lng');
+			    lng = _.pluck(data,'lng');
 			    lat_lng = {
 			    	lat:lat,
 			    	lng:lng
