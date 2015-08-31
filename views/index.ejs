@@ -19,9 +19,9 @@
     <h2>Zip codes with issues:</h2>	
 	<ul class="list-inline">
 	<% if (typeof(zips) !== "undefined") { %>
-	   <% for(var i=0; i < zips.length; i++) { %>
+	   <% zips.map(function(_,i) {   %>
 		<li><big><%= zips[i] %></big></li>
-		<% } } %>
+		<% }) }%>
 		</ul>
    
     
