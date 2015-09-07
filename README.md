@@ -8,10 +8,6 @@ This project will also map the coordinates of issues at the location.
 git clone git@github.com:troy0820/fixit.git
 cd fixit
 npm install
-npm install --save bower
-bower install bootstrap
-bower install font-awesome
-bower install leaflet.markercluster
 ```
 ![Map picture](/public/images/map.png)
 #API endpoints for this project are at these urls.
