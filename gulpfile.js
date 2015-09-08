@@ -9,3 +9,4 @@ gulp.task('compress',function() {
 	console.log('minified');
 });
 	
+gulp.task('default',['compress']);
