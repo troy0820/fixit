@@ -3,10 +3,14 @@ var uglify = require('gulp-uglify');
 
 
 gulp.task('compress',function() {
+	console.log('Minifying......');
 	return gulp.src('public/javascripts/map.js')
 	.pipe(uglify())
-	.pipe(gulp.dest('.'));
-	console.log('minified');
+	.pipe(gulp.dest('.'))
+	
 });
 	
-gulp.task('default',['compress']);
+gulp.task('default',['compress'], function() {
+	console.log('Done Minifying');
+});
+
