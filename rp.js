@@ -1,6 +1,6 @@
 (function() {
 	'use strict';
-}());
+})();
 
 var rp = require('request-promise');
     _ = require('lodash');

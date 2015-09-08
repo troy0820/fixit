@@ -30,6 +30,7 @@
   "author": "Troy M. Connor",
   "License": "MIT",
   "devDependencies": {
-    "gulp": "^3.9.0"
+    "gulp": "^3.9.0",
+    "gulp-uglify": "^1.4.0"
   }
 }
