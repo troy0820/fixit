@@ -38,7 +38,7 @@ rp(url)
    				})
 		   	).then(function(data) {
 		   		var zips = _.union(data);
-		   		 console.log('These are the zip codes',zips);
+		   		 console.log('These are the zip codes',zips.toString());
 		   	});		   	
    		})
    		 .finally(function() {
