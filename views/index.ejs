@@ -10,37 +10,36 @@
      <link rel="stylesheet" href="/bower_components/leaflet.markercluster/dist/MarkerCluster.css">
      <link rel="stylesheet" href="/bower_components/leaflet.markercluster/dist/MarkerCluster.Default.css">
      <script src="/bower_components/leaflet.markercluster/dist/leaflet.markercluster-src.js"></script>
-
   </head>
   <body>
   </style>
-  <div class="container">
-    <h1 class='text-capitalize'><i class="fa fa-wrench"></i> Fix it | <%= title %></h1>
-    <h2>Zip codes with issues:</h2>	
-	<ul class="list-inline">
-	<% if (typeof(zips) !== "undefined") { %>
-	   <% zips.map(function(_,i) {   %>
-		<li><big><%= zips[i] %></big></li>
-		<% }) }%>
-		</ul>
+    <div class="container">
+      <h1 class='text-capitalize'><i class="fa fa-wrench"></i> Fix it | <%= title %></h1>
+      <h2>Zip codes with issues:</h2>	
+  	<ul class="list-inline">
+  	<% if (typeof(zips) !== "undefined") { %>
+  	     <% zips.map(function(_,i) {   %>
+  		<li><big><%= zips[i] %></big></li>
+  		<% }) }%>
+  		</ul>
    
     
     <h2>The Seven Cities</h2>
-    <a href="/hampton" class="btn btn-info" role="button">Hampton</a>
-    <a href="/newport-news" class="btn btn-info" role="button">Newport News</a>
-    <a href="/norfolk" class="btn btn-info" role="button">Norfolk</a>
-    <a href="/suffolk" class="btn btn-info" role="button">Suffolk</a>
-    <a href="/chesapeake" class="btn btn-info" role="button">Chesapeake</a>
-    <a href="/portsmouth" class="btn btn-info" role="button">Portsmouth</a>
-    <a href="/virginia-beach" class="btn btn-info" role="button">Virginia Beach</a>
-  <hr/>
-    <h2 class='text-capitalize'>City of <%= title %> Issues: <%= start + 1%> - <%= start + list.length %></h2>
+      <a href="/hampton" class="btn btn-info" role="button">Hampton</a>
+      <a href="/newport-news" class="btn btn-info" role="button">Newport News</a>
+      <a href="/norfolk" class="btn btn-info" role="button">Norfolk</a>
+      <a href="/suffolk" class="btn btn-info" role="button">Suffolk</a>
+      <a href="/chesapeake" class="btn btn-info" role="button">Chesapeake</a>
+      <a href="/portsmouth" class="btn btn-info" role="button">Portsmouth</a>
+      <a href="/virginia-beach" class="btn btn-info" role="button">Virginia Beach</a>
+    <hr/>
+      <h2 class='text-capitalize'>City of <%= title %> Issues: <%= start + 1%> - <%= start + list.length %></h2>
 <!-- This is the pagination start -->   
-<% if (pages > 1 &&  list.length == 20) { %>
-<a href='/<%= city %>/<%= next_page %>'><h4 class='text-capitalize'>Next Page</h4></a> 
-<% } else { %>
-<a href='/<%=city%>/1'><h4 class='text-capitalize'><%= title %></h4></a>
-<% } %>
+  <% if (pages > 1 &&  list.length == 20) { %>
+  <a href='/<%= city %>/<%= next_page %>'><h4 class='text-capitalize'>Next Page</h4></a> 
+  <% } else { %>
+  <a href='/<%=city%>/1'><h4 class='text-capitalize'><%= title %></h4></a>
+  <% } %>
 <ul class="list-unstyled">
     <% if(list) {
         list.map(function(_,i){ %>
@@ -50,14 +49,13 @@
     <li>Summary: <%= list[i].summary %></li>
         <% if(list[i].description !="") { %>
           <li>Description: <%= list[i].description %></li>
-
-    	<% } %>
+        <% } %>
       <hr>
     <% } ) } %></ul>
-    <div id="map" style="height: 500px;">
-  <script type="text/javascript">
-  function success(r){var a=r.coords,e=L.marker([a.latitude,a.longitude],{icon:redIcon});e.bindPopup("This is me"),e.addTo(map)}function error(r){console.warn("ERROR("+r.code+"): "+r.message)}var RedIcon=L.Icon.Default.extend({options:{iconUrl:"/images/marker-icon-red.png"}}),redIcon=new RedIcon,map=L.map("map").setView(["<%= list[0].lat %>","<%= list[0].lng %>"],11),options={enableHighAccuracy:!0,timeout:5e3,maximumAge:0};navigator.geolocation.getCurrentPosition(success,error,options),navigator.geolocation.watchPosition(success,error,options),L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png",{attribution:'&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);var lngth="<%= list.length %>",arr=[];art=[],summ=[],arr="<%=lat.slice() %>",art="<%=lng.slice() %>",summ="<%= summary.slice() %>",addr="<%= address.slice() %>";for(var summary=summ.split(","),array=arr.split(","),array2=art.split(","),markers=new L.MarkerClusterGroup,i=0;lngth>i;i++){var marker=L.marker(new L.LatLng(array[i],array2[i]),{});L.circle([array[i],array2[i]]).setRadius(1609.34).addTo(map),marker.bindPopup("Summary: "+summary[i]+"<br/>"),markers.addLayer(marker)}map.addLayer(markers);
-  </script>
+  <div id="map" style="height: 500px;">
+    <script type="text/javascript">
+      function success(r){var a=r.coords,e=L.marker([a.latitude,a.longitude],{icon:redIcon});e.bindPopup("This is me"),e.addTo(map)}function error(r){console.warn("ERROR("+r.code+"): "+r.message)}var RedIcon=L.Icon.Default.extend({options:{iconUrl:"/images/marker-icon-red.png"}}),redIcon=new RedIcon,map=L.map("map").setView(["<%= list[0].lat %>","<%= list[0].lng %>"],11),options={enableHighAccuracy:!0,timeout:5e3,maximumAge:0};navigator.geolocation.getCurrentPosition(success,error,options),navigator.geolocation.watchPosition(success,error,options),L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png",{attribution:'&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);var lngth="<%= list.length %>",arr=[];art=[],summ=[],arr="<%=lat.slice() %>",art="<%=lng.slice() %>",summ="<%= summary.slice() %>",addr="<%= address.slice() %>";for(var summary=summ.split(","),array=arr.split(","),array2=art.split(","),markers=new L.MarkerClusterGroup,i=0;lngth>i;i++){var marker=L.marker(new L.LatLng(array[i],array2[i]),{});L.circle([array[i],array2[i]]).setRadius(1609.34).addTo(map),marker.bindPopup("Summary: "+summary[i]+"<br/>"),markers.addLayer(marker)}map.addLayer(markers);
+    </script>
       <script src="/bower_components/jquery/dist/jquery.min.js"></script>
       <script src="/bower_components/jquery/dist/jquery.min.map"></script>
       
