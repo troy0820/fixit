@@ -9,13 +9,12 @@ request.getAsync("https://seeclickfix.com/api/v2/issues?place_url=hampton&state=
 			var data = JSON.parse(body).issues;
 			return data;
 		}).then(function(data) {
-		//	console.log('\n I got the data to this point \n',data);
 			var lat = _.pluck(data,'lat');
-			    lng = _.pluck(data,'lng');
-			    lat_lng = {
-			    	lat:lat,
-			    	lng:lng
-			    };
+		    	lng = _.pluck(data,'lng');
+		    	lat_lng = {
+		    	lat:lat,
+		    	lng:lng
+		    };
 			return lat_lng;
 		}).then(function(lat_lng) {
 			console.log('these are the lats \n', lat_lng.lat,  '\n these are the longs \n',lat_lng.lng);
