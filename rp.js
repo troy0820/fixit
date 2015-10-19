@@ -41,10 +41,7 @@ rp(url)
 		   		 console.log('These are the zip codes',zips.toString());
 		   	});		   	
    		})
-   		 .finally(function() {
-   			console.log('We are finally done here');   		
-   	
-  })
+   		 
    	.catch(console.error);
 
 
