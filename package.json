@@ -3,8 +3,7 @@
   "version": "0.0.2",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www",
-    "test": "./node_modules/.bin/mocha tests/test.js"
+    "start": "nodemon ./bin/www"
   },
   "dependencies": {
     "async": "^1.2.1",
