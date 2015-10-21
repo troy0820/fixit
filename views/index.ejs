@@ -3,13 +3,14 @@
   <head>
     <title>See Click fix it for Hampton Roads</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css.map">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
      <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
     <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-     <link rel="stylesheet" href="/bower_components/leaflet.markercluster/dist/MarkerCluster.css">
-     <link rel="stylesheet" href="/bower_components/leaflet.markercluster/dist/MarkerCluster.Default.css">
-     <script src="/bower_components/leaflet.markercluster/dist/leaflet.markercluster-src.js"></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.Default.css">
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/leaflet.markercluster-src.js"></script>
   </head>
   <body>
   </style>
@@ -56,8 +57,9 @@
     <script type="text/javascript">
       function success(r){var a=r.coords,e=L.marker([a.latitude,a.longitude],{icon:redIcon});e.bindPopup("This is me"),e.addTo(map)}function error(r){console.warn("ERROR("+r.code+"): "+r.message)}var RedIcon=L.Icon.Default.extend({options:{iconUrl:"/images/marker-icon-red.png"}}),redIcon=new RedIcon,map=L.map("map").setView(["<%= list[0].lat %>","<%= list[0].lng %>"],11),options={enableHighAccuracy:!0,timeout:5e3,maximumAge:0};navigator.geolocation.getCurrentPosition(success,error,options),navigator.geolocation.watchPosition(success,error,options),L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png",{attribution:'&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);var lngth="<%= list.length %>",arr=[];art=[],summ=[],arr="<%=lat.slice() %>",art="<%=lng.slice() %>",summ="<%= summary.slice() %>",addr="<%= address.slice() %>";for(var summary=summ.split(","),array=arr.split(","),array2=art.split(","),markers=new L.MarkerClusterGroup,i=0;lngth>i;i++){var marker=L.marker(new L.LatLng(array[i],array2[i]),{});L.circle([array[i],array2[i]]).setRadius(1609.34).addTo(map),marker.bindPopup("Summary: "+summary[i]+"<br/>"),markers.addLayer(marker)}map.addLayer(markers);
     </script>
-      <script src="/bower_components/jquery/dist/jquery.min.js"></script>
-      <script src="/bower_components/jquery/dist/jquery.min.map"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.map"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
       
     </div>
     </div>
