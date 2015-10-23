@@ -1,4 +1,4 @@
 var request = require('supertest');
-    app = require(../app.js);
+    app = require('../app.js');
 
 
