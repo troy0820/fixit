@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
-    "test": "mocha tests/tests.js"
+    "test": "./node_modules/mocha/bin/mocha tests/tests.js"
   },
   "dependencies": {
     "async": "^1.2.1",
@@ -33,6 +33,7 @@
   "devDependencies": {
     "gulp": "^3.9.0",
     "gulp-uglify": "^1.4.0",
-    "supertest":"*"
+    "supertest":"*",
+    "mocha":"*"
   }
 }
