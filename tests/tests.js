@@ -6,7 +6,7 @@ describe('/GET /', function(){
 	it('should render page with external api',function(done){
 		request(app)
 		.get('/')
-		.expect(200, 'oops something went wrong');
+		.expect(200);
 		done();
 	});
 });
