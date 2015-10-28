@@ -1,17 +1,18 @@
 var request = require('supertest');
     app = require('../app.js');
     assert = require('assert'); 
+    _ = require('lodash');
 
-describe('GET index', function(){
+describe('plain ol\' get index', function(){
 	it('should render page with external api',function(done){
 		request(app)
 		.get('/')
-		.expect(200);
+		.expect(200)
 		done();
 	});
 });
 
-describe('Page redirect', function(){
+describe('should be a page redirect', function(){
 	it('should redirect to newport-news/:id',function(done){
 		request(app)
 		.get('/newport-news')
@@ -20,7 +21,7 @@ describe('Page redirect', function(){
 	});
 });
 
-describe('render html',function(){
+describe('this should render some html',function(){
 	it('should render some html ', function(done){
 	request(app)
     	.get('/')
