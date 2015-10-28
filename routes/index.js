@@ -31,7 +31,7 @@ async.parallel(lat.map(function(_, index) {
       }
 
       var result = (data.results[0].address_components[6].short_name);
-      console.log('result', result);
+  //    console.log('result', result);
       callback(null, result);
     });
   };
@@ -40,7 +40,7 @@ async.parallel(lat.map(function(_, index) {
     console.log('This is an error');
   }
   var zips = _.union(results);
-  console.log('These are the zips ' + zips);
+ //console.log('These are the zips ' + zips);
 
     	
    res.render('index', { title: 'Hampton', list: list, 
