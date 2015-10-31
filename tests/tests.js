@@ -7,8 +7,7 @@ describe('plain ol\' get index', function(){
 	it('should render page with external api',function(done){
 		request(app)
 		.get('/')
-		.expect(200);
-		done();
+		.expect(200,done);
 	});
 });
 
