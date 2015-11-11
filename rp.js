@@ -6,7 +6,7 @@ var rp = require('request-promise');
     _ = require('lodash');
     Promise = require('bluebird');
     geocode = require('geocoder');
-    url = "https://seeclickfix.com/api/v2/issues?place_url=hampton&state=VA&per_page=20&page=1";
+    url = "https://seeclickfix.com/api/v2/issues?place_url=portsmouth&state=VA&per_page=20&page=1";
 
 rp(url)
    .then(function(body) {
@@ -38,9 +38,14 @@ rp(url)
    				})
 		   	).then(function(data) {
 		   		var zips = _.union(data);
+		   		zips = _.remove(zips, function(zip){
+		   			return zip.length == 5;
+		   		})
+		   		return zips;
+		   	}).then(function(zips) {		   	
 		   		 console.log('These are the zip codes',zips.toString());
-		   	});		   	
    		})
+		   })
    		 
    	.catch(console.error);
 
