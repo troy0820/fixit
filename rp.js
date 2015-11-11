@@ -41,13 +41,10 @@ rp(url)
 		   		zips = _.remove(zips, function(zip){
 		   			return zip.length == 5;
 		   		})
-		   		return zips;
-		   	}).then(function(zips) {		   	
-		   		 console.log('These are the zip codes',zips.toString());
-   		})
-		   })
-   		 
-   	.catch(console.error);
+	   		 console.log('These are the zip codes',zips.toString());
+			})
+	   })
+   		.catch(console.error);
 
 
    		
