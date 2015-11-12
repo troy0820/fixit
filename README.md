@@ -3,16 +3,7 @@
 This project is to take the api and provide front end work with express.
 This project will also map the coordinates of issues at the location.
 
-###Getting started
-```
-git clone git@github.com:troy0820/fixit.git
-cd fixit
-npm install
-npm install --save bower
-bower install bootstrap
-bower install font-awesome
-bower install leaflet.markercluster
-```
+###This is the github page for See Click Fix it Hampton Roads.  To see this project visit [See Click Fix it Hampton Roads](https://github.com/troy0820/fixit/tree/master)
 
 #API for this project is at this url.
 ```
