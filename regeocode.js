@@ -7,7 +7,7 @@ var geocode = require('geocoder');
 var _ = require('lodash');
 //list of coords will be better 
 //may have to filter response through filter and find 'postal_code'
-geocode.reverseGeocode(36.8361511244855, -76.2994304496789, function(err, result){
+geocode.reverseGeocode(36.821169, -76.3939686, function(err, result){
 	if (err) { 
 		console.error(err);
 	}
