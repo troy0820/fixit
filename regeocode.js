@@ -11,6 +11,13 @@ geocode.reverseGeocode(36.8361511244855, -76.2994304496789, function(err, result
 	if (err) { 
 		console.error(err);
 	}
-		console.log('result', result.results[0].address_components);
-	
+		var zips = result.results[0].address_components;
+
+		var newzips = _.reduce(zips,function(all,item, index) {
+				if(item.types[0] == 'postal_code') {
+					all.push(item.short_name);
+					}
+				return all;
+		},[])
+	console.log('all', newzips.toString());
 })
