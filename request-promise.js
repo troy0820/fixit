@@ -4,7 +4,7 @@ var request = require('request');
 	geocode = require('geocoder');
 promise.promisifyAll(request);
 
-request.getAsync("https://seeclickfix.com/api/v2/issues?place_url=portsmouth&state=VA&per_page=20&page=1")
+request.getAsync("https://seeclickfix.com/api/v2/issues?place_url=virginia-beach&state=VA&per_page=10&page=1")
 		.spread(function(res,body) { //callback signature is (err, res, body) so we need to use spread instead of then
 			var data = JSON.parse(body).issues;
 			return data;
