@@ -27,8 +27,14 @@ rp(url)
    			return new Promise(function(resolve, reject) {
    				geocode.reverseGeocode(lat, lng, function(err, data) {
       				if (err) { reject(err); }			
-			 	 		var result = data.results[0].address_components[6].short_name;
-		      	 			resolve(result);
+			 	 		var zips = data.results[0].address_components;
+			 	 		var newzips = _.reduce(zips,function(all,item, index) {
+							if(item.types[0] == 'postal_code') {
+							all.push(item.short_name);
+							}
+								return all;
+							},[])
+		      	 			resolve(newzips);
 							});
 		   				});
 		   			};
@@ -37,10 +43,12 @@ rp(url)
    			return getzips(lat_lng.lat[index],lat_lng.lng[index]);
    				})
 		   	).then(function(data) {
-		   		var zips = _.union(data);
-		   		zips = _.remove(zips, function(zip){
-		   			return zip.length == 5;
-		   		})
+		  // 		console.log('data',data)
+		   		var zips = _.union(_.flatten(data));
+
+			   		// zips = _.remove(zips, function(zip){
+			   		// 	return zip.length == 5;
+			   		// })
 	   		 console.log('These are the zip codes',zips.toString());
 			})
 	   })
