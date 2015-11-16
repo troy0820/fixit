@@ -33,7 +33,7 @@ rp(url)
 							all.push(item.short_name);
 							}
 								return all;
-							},[])
+							},[]);
 		      	 			resolve(newzips);
 							});
 		   				});
@@ -45,7 +45,7 @@ rp(url)
 		   	).then(function(data) {
 		   		var zips = _.union(_.flatten(data));
 	   		 console.log('These are the zip codes',zips.toString());
-			})
+			});
 	   })
    		.catch(console.error);
 
