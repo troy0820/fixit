@@ -43,12 +43,7 @@ rp(url)
    			return getzips(lat_lng.lat[index],lat_lng.lng[index]);
    				})
 		   	).then(function(data) {
-		  // 		console.log('data',data)
 		   		var zips = _.union(_.flatten(data));
-
-			   		// zips = _.remove(zips, function(zip){
-			   		// 	return zip.length == 5;
-			   		// })
 	   		 console.log('These are the zip codes',zips.toString());
 			})
 	   })
