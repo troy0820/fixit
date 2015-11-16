@@ -34,7 +34,7 @@ promise.promisifyAll(geocode);
 					all.push(item.short_name);
 					}
 				return all;
-		},[])
+		},[]);
 		  	resolve(newzips);
 		  });
 		})
