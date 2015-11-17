@@ -18,6 +18,6 @@ geocode.reverseGeocode(36.7525391, -75.9796989, function(err, result){
 					all.push(item.short_name);
 					}
 				return all;
-		},[])
+		},[]);
 	console.log('all', newzips.toString());
-})
+});
