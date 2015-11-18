@@ -3,7 +3,6 @@ var router = express.Router();
 var request = require('request');
 var _ = require('lodash');
 var geocode = require('geocoder');
-var async = require('async');
 var Promise = require('bluebird');
 
 router.get('/', function(req, res) {
