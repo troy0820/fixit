@@ -4,6 +4,7 @@ var request = require('request');
 var _ = require('lodash');
 var geocode = require('geocoder');
 var async = require('async');
+var Promise = require('bluebird');
 
 router.get('/', function(req, res) {
    var url = "https://seeclickfix.com/api/v2/issues?place_url=hampton&state=VA&per_page=20&page=1";
@@ -20,37 +21,39 @@ router.get('/', function(req, res) {
    	 var lng = _.pluck(list, 'lng');
 	   var start = 0;
    	 var summary = _.pluck(list, 'summary');
-     	 var address = _.pluck(list, 'address');
+     var address = _.pluck(list, 'address');
 
-
-async.parallel(lat.map(function(_, index) {
-  return function(callback) { //return immediately to make array of async tasks. 
-    geocode.reverseGeocode(lat[index], lng[index], function(err, data) {
-      if (err) {
-        return callback(err);
-      }
-
-      var result = (data.results[0].address_components[6].short_name);
-  //    console.log('result', result);
-      callback(null, result);
-    });
-  };
-}), function(err, results) { //final callback
-  if (err) {
-    console.log('This is an error');
-  }
-  var zips = _.union(results);
- console.log('These are the zips ' + zips);
-
-    	
-   res.render('index', { title: 'Hampton', list: list, 
-      lat:lat, lng:lng, 
-      summary:summary, per_page:pages, 
-      start:start,pages:pages, city:city, 
-      address:address,zips:zips});   
- });
-
-    });
+    var getzips = function(lat, lng) {
+        return new Promise(function(resolve, reject) {
+          geocode.reverseGeocode(lat, lng, function(err, data) {
+              if (err) { reject(err); }     
+            var zips = data.results[0].address_components;
+            var newzips = _.reduce(zips,function(all,item, index) {
+              if (item.types[0] == 'postal_code') {
+                  all.push(item.short_name);
+                  }
+                  return all;
+                },[]);
+                      resolve(newzips);
+                     });
+                });
+            };
+        
+    Promise.all(lat.map(function(_,index) {      
+        return getzips(lat[index],lng[index]);
+          })
+        ).then(function(data) {
+          var zips = _.union(_.flatten(data));
+          return zips;
+      })
+        .then(function(zips){
+              res.render('index', { title: 'Hampton', list: list, 
+              lat:lat, lng:lng, 
+              summary:summary, per_page:pages, 
+              start:start,pages:pages, city:city, 
+              address:address,zips:zips});   
+            });
+      });
 });
 
 router.get('/:city', function(req, res) {
