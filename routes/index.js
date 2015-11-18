@@ -103,8 +103,9 @@ router.get('/:city/:id',function(req,res) {
     } else {
     title = city;
     }
+    var issues = pages * per_page;
     res.render('index', { title: title, list: list, lat:lat, lng:lng, summary:summary, per_page:per_page, pages:pages, 
-    start:start, city:city, next_page:next_page, address: address });
+    start:start, city:city, next_page:next_page, address: address, issues: issues });
     });
 });
 
