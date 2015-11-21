@@ -103,9 +103,36 @@ router.get('/:city/:id',function(req,res) {
     title = city;
     }
     var issues = pages * per_page;
+    
+    var getzips = function(lat, lng) {
+        return new Promise(function(resolve, reject) {
+          geocode.reverseGeocode(lat, lng, function(err, data) {
+              if (err) { reject(err); }     
+            var zips = data.results[0].address_components;
+            var newzips = _.reduce(zips,function(all,item, index) {
+              if (item.types[0] == 'postal_code') {
+                  all.push(item.short_name);
+                  }
+                  return all;
+                },[]);
+                      resolve(newzips);
+                     });
+                });
+            };
+        
+    Promise.all(lat.map(function(_,index) {      
+        return getzips(lat[index],lng[index]);
+          })
+        ).then(function(data) {
+          var zips = _.union(_.flatten(data));
+          return zips;
+      })
+        .then(function(zips){
+      
     res.render('index', { title: title, list: list, lat:lat, lng:lng, summary:summary, per_page:per_page, pages:pages, 
-    start:start, city:city, next_page:next_page, address: address, issues: issues });
+    start:start, city:city, next_page:next_page, address: address, issues: issues, zips: zips });
     });
+  });
 });
 
 router.post('/',function(req,res){
