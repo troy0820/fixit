@@ -1,3 +1,6 @@
+(function(){
+  'use strict';
+})();
 var request = require('request');
 	promise = require('bluebird');
 	_ = require('lodash');
