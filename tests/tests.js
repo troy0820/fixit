@@ -20,6 +20,14 @@ describe('page redirect', function(){
 	});
 });
 
+describe('page redirect', function(){
+	it('should redirect to another page', function(done) {
+		request(app)
+		.get('/hampton/')
+		.expect(302,done);
+	});
+});
+
 describe('render some html',function(){
 	it('should render some html ', function(done){
 	request(app)
