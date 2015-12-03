@@ -60,7 +60,7 @@ router.get('/:city', function(req, res) {
 
   if (city == 'hampton') {
     res.redirect('/');
-    }
+  }
   else {
       res.redirect('/' + city + '/1');
     }
