@@ -58,8 +58,12 @@ router.get('/', function(req, res) {
 router.get('/:city', function(req, res) {
   var city = req.params.city;
 
-  res.redirect('/' + city + '/1');
-
+  if (city == 'hampton') {
+    res.redirect('/');
+    }
+  else {
+      res.redirect('/' + city + '/1');
+    }
 });
 
 router.get('/:city/:id',function(req,res) {
