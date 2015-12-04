@@ -8,6 +8,7 @@ This project will also map the coordinates of issues at the location.
 git clone git@github.com:troy0820/fixit.git
 cd fixit
 npm install
+fixit
 ```
 ![Map picture](/public/images/map.png)
 #API endpoints for this project are at these urls.
