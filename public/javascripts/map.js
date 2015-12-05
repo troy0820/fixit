@@ -18,7 +18,7 @@ function success(pos) {
 var crd = pos.coords;
 
 var me = L.marker([crd.latitude,crd.longitude],{ icon: redIcon })
-        me.bindPopup('This is me')
+        me.bindPopup('Your location is here.')
         me.addTo(map);
 };
 
@@ -29,7 +29,6 @@ console.warn('ERROR(' + err.code + '): ' + err.message);
 navigator.geolocation.getCurrentPosition(success, error, options);
 navigator.geolocation.watchPosition(success, error, options);
 
-  // // add an OpenStreetMap tile layer
      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
          attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
      }).addTo(map);
