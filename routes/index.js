@@ -133,8 +133,10 @@ router.get('/:city/:id',function(req,res) {
       })
         .then(function(zips){
       
-    res.render('index', { title: title, list: list, lat:lat, lng:lng, summary:summary, per_page:per_page, pages:pages, 
-    start:start, city:city, next_page:next_page, address: address, issues: issues, zips: zips });
+    res.render('index', { title: title, list: list, lat:lat, 
+      lng:lng, summary:summary, per_page:per_page, pages:pages, 
+      start:start, city:city, next_page:next_page, 
+      address: address, issues: issues, zips: zips });
     });
   });
 });
