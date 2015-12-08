@@ -3,24 +3,23 @@
    correctly from the reverse.geocode api
 **************************************************/
 
-var geocode = require('geocoder');
-var _ = require('lodash');
-//list of coords will be better 
-//may have to filter response through filter and find 'postal_code'
-geocode.reverseGeocode(36.7525391, -75.9796989, function(err, result){
-	if (err) { 
-		console.error(err);
-	}
-		var zips = result.results[0].address_components;
+'use strict';
 
-		var newzips = _.reduce(zips,function(all,item, index) {
-				if(item.types[0] == 'postal_code') {
-					all.push(item.short_name);
-					}
-				return all;
+const geocode = require('geocoder');
+const _ = require('lodash');
+
+geocode.reverseGeocode(36.7525391, -75.9796989,(err, result) => {
+	if (err) { console.error(err)}
+		let zips = result.results[0].address_components;
+		let newzips = _.reduce(zips, (all,item,index) => {
+			if (item.types[0] == 'postal_code') {
+				all.push(item.short_name);
+			}
+			return all;
 		},[]);
-	console.log('all', newzips.toString());
+		console.log('zips',newzips);
 });
+
 
 // async.parallel(lat.map(function(_, index) {
 //   return function(callback) { //return immediately to make array of async tasks. 
