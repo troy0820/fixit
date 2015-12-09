@@ -17,7 +17,7 @@ geocode.reverseGeocode(36.7525391, -75.9796989,(err, result) => {
 			}
 			return all;
 		},[]);
-		console.log('zips',newzips);
+		console.log('zip',newzips.toString());
 });
 
 
