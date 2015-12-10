@@ -10,8 +10,8 @@ const _ = require('lodash');
 
 geocode.reverseGeocode(36.7525391, -75.9796989,(err, result) => {
 	if (err) { console.error(err)}
-		let zips = result.results[0].address_components;
-		let newzips = _.reduce(zips, (all,item,index) => {
+		const zips = result.results[0].address_components;
+		const newzips = _.reduce(zips, (all,item,index) => {
 			if (item.types[0] == 'postal_code') {
 				all.push(item.short_name);
 			}
@@ -22,7 +22,7 @@ geocode.reverseGeocode(36.7525391, -75.9796989,(err, result) => {
 
 
 // async.parallel(lat.map(function(_, index) {
-//   return function(callback) { //return immediately to make array of async tasks. 
+//   return function(callback) { //return immediately to make array of async tasks.
 //     geocode.reverseGeocode(lat[index], lng[index], function(err, data) {
 //       if (err) {
 //         return callback(err);
