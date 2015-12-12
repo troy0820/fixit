@@ -36,7 +36,7 @@
     "fixit": "./bin/fixit"
   },
   "author": "Troy M. Connor",
-  "License": "MIT",
+  "license": "MIT",
   "devDependencies": {
     "assert": "^1.3.0",
     "eslint": "^1.10.3",
