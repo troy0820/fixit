@@ -1,7 +1,7 @@
 {
   "name": "fixit",
   "version": "0.0.2",
-  "private": true,
+  "private": false,
   "scripts": {
     "start": "nodemon ./bin/www",
     "test": "./node_modules/mocha/bin/mocha tests/tests.js",
