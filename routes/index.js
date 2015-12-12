@@ -6,7 +6,7 @@ var geocode = require('geocoder');
 var Promise = require('bluebird');
 
 router.get('/', function(req, res) {
-   var url = "https://seeclickfix.com/api/v2/issues?place_url=hampton&state=VA&per_page=20&page=1";
+   var url = "https://seeclickfix.com/api/v2/issues?place_url=hampton&state=VA&per_page=10&page=1";
    request(url, function(err, response, body) {
    	if (err) {
    		console.error(err);
@@ -72,7 +72,7 @@ router.get('/:city/:id',function(req,res) {
   if (city == 'hampton') {
     res.redirect('/');
   }
-  var url = "https://seeclickfix.com/api/v2/issues?place_url="+ city +"&state=VA&per_page=20&page=" + id;
+  var url = "https://seeclickfix.com/api/v2/issues?place_url="+ city +"&state=VA&per_page=10&page=" + id;
  
    request(url, function(err, response, body) {
     if(err) {
