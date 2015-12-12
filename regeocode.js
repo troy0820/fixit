@@ -11,7 +11,7 @@ const _ = require('lodash');
 geocode.reverseGeocode(36.7525391, -75.9796989,(err, result) => {
 	if (err) { console.error(err)}
 		const zips = result.results[0].address_components;
-		const newzips = _.reduce(zips, (all,item,index) => {
+		const newzips = _.reduce(zips, (all,item) => {
 			if (item.types[0] == 'postal_code') {
 				all.push(item.short_name);
 			}
