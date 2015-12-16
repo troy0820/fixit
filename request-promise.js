@@ -51,7 +51,7 @@ request.getAsync("https://seeclickfix.com/api/v2/issues?place_url=virginia-beach
 			})
 		).then(function(data) {
 			var zipcodes = _.uniq(_.flatten(data));
-			console.log("\n zipcodes:(uniqued):\n",zipcodes.toString());
+			console.log("\n zipcodes:(uniqued):\n",zipcodes.toString().replace(/\,/g," "));
 		});
 		});
 
