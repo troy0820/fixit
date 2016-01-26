@@ -5,7 +5,7 @@
   "scripts": {
     "start": "nodemon ./bin/www",
     "test": "./node_modules/mocha/bin/mocha tests/tests.js",
-    "lint": "eslint app.js"
+    "lint": "eslint rp.js"
   },
   "dependencies": {
     "async": "^1.5.1",
