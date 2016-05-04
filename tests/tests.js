@@ -1,7 +1,7 @@
 var request = require('supertest');
     app = require('../app.js');
-    assert = require('assert'); 
-    
+    assert = require('assert');
+
 
 describe('plain ol\' get index', function(){
 	it('should render page with external api',function(done){
@@ -33,7 +33,7 @@ describe('render some html',function(){
 	request(app)
     	.get('/')
     	.end(function(err, result) {
-        assert(result.text.indexOf("</html>") > 0);
+        assert(result.text.indexOf('</html>') > 0);
         done();
     	});
 	});
