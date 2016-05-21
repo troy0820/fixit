@@ -8,7 +8,15 @@ This project will also map the coordinates of issues at the location.
 git clone git@github.com:troy0820/fixit.git
 cd fixit
 npm install
-fixit
+npm start
+
+```bash
+To use the Dockerfile in this repo:
+docker build -t fix-it-app .
+docker run -p 3000:3000 -e PORT=3000 fix-it-app
+```
+Go to `localhost:3000` to view the app
+
 ```
 ![Map picture](/public/images/map.png)
 #API endpoints for this project are at these urls.
@@ -22,4 +30,3 @@ https://seeclickfix.com/api/v2/issues?place_url=chesapeake&state=VA
 https://seeclickfix.com/api/v2/issues?place_url=virginia-beach&state=VA
 ```
 ##Documentation for metadata are included in /GET request of each endpoint, i.e pages, per_page, etc.
- 
