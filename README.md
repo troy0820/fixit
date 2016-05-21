@@ -9,9 +9,10 @@ git clone git@github.com:troy0820/fixit.git
 cd fixit
 npm install
 npm start
+```
 
+###To use the Dockerfile in this repo:
 ```bash
-To use the Dockerfile in this repo:
 docker build -t fix-it-app .
 docker run -p 3000:3000 -e PORT=3000 fix-it-app
 ```
