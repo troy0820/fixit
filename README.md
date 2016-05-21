@@ -18,7 +18,6 @@ docker run -p 3000:3000 -e PORT=3000 fix-it-app
 ```
 Go to `localhost:3000` to view the app
 
-```
 ![Map picture](/public/images/map.png)
 #API endpoints for this project are at these urls.
 ```
