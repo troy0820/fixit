@@ -14,7 +14,7 @@ describe('plain ol\' get index', function(){
 describe('page redirect', function(){
 	it('should redirect to newport-news/:id',function(done){
 		request(app)
-		.get('/newport-news')
+		.get('/newport-news/')
 		.expect(302, done);
 
 	});
