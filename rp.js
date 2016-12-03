@@ -4,7 +4,6 @@
 
 const rp = require('request-promise');
 const  _ = require('lodash');
-const Promise = require('bluebird');
 const geocode = require('geocoder');
 const url = 'https://seeclickfix.com/api/v2/issues?place_url=portsmouth&state=VA&per_page=20&page=1';
 

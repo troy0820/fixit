@@ -1,4 +1,4 @@
-FROM node:7.1
+FROM mhart/alpine-node:latest
 
 COPY package.json /tmp/package.json
 
