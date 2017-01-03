@@ -42,5 +42,5 @@ rp(url)
 			const zips = _.union(_.flatten(data));
 			console.log('These are the zip codes',zips.toString().replace(/\,/g,' '));
 		});
-})
+	})
  .catch(console.error);
