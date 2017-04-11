@@ -3,9 +3,9 @@
   "version": "0.0.4",
   "private": false,
   "scripts": {
-    "start": "nodemon ./bin/www",
-    "test": "./node_modules/mocha/bin/mocha tests/tests.js",
-    "lint": "eslint *.js",
+    "start": "jeopardy nodemon ./bin/www",
+    "test": "jeopardy ./node_modules/mocha/bin/mocha tests/tests.js",
+    "lint": "jeopardy eslint *.js",
     "dev": "nodejs-dashboard npm start"
   },
   "dependencies": {
@@ -19,6 +19,7 @@
     "ejs": "^2.3.4",
     "express": "^4.13.3",
     "geocoder": "^0.2.2",
+    "jeopardy": "^1.0.1",
     "lodash": "^3.5.0",
     "morgan": "^1.6.1",
     "nodemon": "^1.8.1",
