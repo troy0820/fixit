@@ -5,6 +5,11 @@ var _ = require('lodash');
 var geocode = require('geocoder');
 var Promise = require('bluebird');
 
+router.get('/health', function(req, res) {
+	res.send('GOOD');
+});
+
+
 router.get('/', function(req, res) {
    var url = 'https://seeclickfix.com/api/v2/issues?place_url=hampton&state=VA&per_page=10&page=1';
    request(url, function(err, response, body) {
